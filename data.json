@@ -3,40 +3,95 @@
     "ad": "Tarihi Yarımada Quest",
     "baslangic_bitis_noktasi": "Binbirdirek Sarnıcı",
     "sure_dakika": 150,
-    "senkron_url": ""
+    "senkron_url": "",
+    "baslangic_bitis_konum": ""
   },
   "istasyonlar": {
     "dondurma": {
       "ad": "Dondurma",
+      "konum": "https://maps.app.goo.gl/C7rzooettGuvDBrr7?g_st=ic",
       "gorev": "Dondurmacıyı bulun. Tüm takım dondurmasını alsın; dondurmacıdan kodu isteyin.",
       "kod": "DON123"
     },
     "simit": {
       "ad": "Simit Tekerlemesi",
+      "konum": "https://maps.app.goo.gl/sQHBdv88TEsSxNyp6?g_st=ic",
       "gorev": "Simitçiye tekerlemeyi hep bir ağızdan, hatasız söyleyin. Başarırsanız kodu verir.",
       "kod": "SIM456"
     },
     "kahve": {
       "ad": "Kahve",
+      "konum": "",
       "gorev": "Kahve durağında takımdan bir kişi kahveyi hazırlasın. Yetkiliden kodu alın.",
       "kod": "KAH789"
     },
     "arasta": {
       "ad": "Arasta Çarşısı Malzeme Seçimi",
+      "konum": "",
       "gorev": "Arasta Çarşısı'nda yetkilinin verdiği listedeki malzemeleri seçin ve gösterin. Doğruysa kodu verir.",
       "kod": "ARA321"
     }
   },
   "rotalar": {
-    "1":  ["dondurma", "simit", "kahve", "arasta"],
-    "2":  ["simit", "kahve", "arasta", "dondurma"],
-    "3":  ["kahve", "arasta", "dondurma", "simit"],
-    "4":  ["arasta", "dondurma", "simit", "kahve"],
-    "5":  ["dondurma", "kahve", "arasta", "simit"],
-    "6":  ["simit", "arasta", "dondurma", "kahve"],
-    "7":  ["kahve", "simit", "arasta", "dondurma"],
-    "8":  ["arasta", "kahve", "simit", "dondurma"],
-    "9":  ["dondurma", "arasta", "simit", "kahve"],
-    "10": ["simit", "dondurma", "arasta", "kahve"]
+    "1": [
+      "dondurma",
+      "simit",
+      "kahve",
+      "arasta"
+    ],
+    "2": [
+      "simit",
+      "kahve",
+      "arasta",
+      "dondurma"
+    ],
+    "3": [
+      "kahve",
+      "arasta",
+      "dondurma",
+      "simit"
+    ],
+    "4": [
+      "arasta",
+      "dondurma",
+      "simit",
+      "kahve"
+    ],
+    "5": [
+      "dondurma",
+      "kahve",
+      "arasta",
+      "simit"
+    ],
+    "6": [
+      "simit",
+      "arasta",
+      "dondurma",
+      "kahve"
+    ],
+    "7": [
+      "kahve",
+      "simit",
+      "arasta",
+      "dondurma"
+    ],
+    "8": [
+      "arasta",
+      "kahve",
+      "simit",
+      "dondurma"
+    ],
+    "9": [
+      "dondurma",
+      "arasta",
+      "simit",
+      "kahve"
+    ],
+    "10": [
+      "simit",
+      "dondurma",
+      "arasta",
+      "kahve"
+    ]
   }
 }

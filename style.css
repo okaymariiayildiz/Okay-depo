@@ -30,3 +30,4 @@ th{font-size:.8rem;color:var(--soluk)}td.n{text-align:center;font-weight:700}
 .uyari{background:#fff3cd;color:#5c4400;border-radius:12px;padding:10px 14px;font-size:.9rem}
 .gizli{display:none!important}
 .buyuk{font-size:3rem;text-align:center}
+a.btn{text-decoration:none;text-align:center;line-height:60px;margin-top:10px}a.btn.konum{background:var(--yesil);color:#fff}

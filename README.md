@@ -14,6 +14,8 @@ Sadece HTML/CSS/JS; derleme veya sunucu gerekmez.
 ## data.json'u düzenleme
 - `istasyonlar`: her istasyonun `ad`, `gorev` (açıklama) ve `kod` (yetkilinin vereceği kod) alanı var. Yeni istasyon eklemek için yeni bir anahtar ekleyin.
 - `rotalar`: `"1"`'den `"10"`'a her takımın istasyon sırası (istasyon anahtarlarıyla). Takım sayısını rota ekleyip çıkararak değiştirebilirsiniz.
+- `konum`: istasyonun Google Maps bağlantısı. Maps'te yeri açın → **Paylaş → Bağlantıyı kopyala** → `"konum": "https://maps.app.goo.gl/..."` içine yapıştırın. Doluysa istasyonda **📍 Konuma git** butonu çıkar, boşsa buton görünmez. Bitiş noktası için `etkinlik.baslangic_bitis_konum` alanı vardır.
+- `kod`: yetkilinin görevi tamamlayan takıma söylediği şifre.
 - `etkinlik`: ad, başlangıç/bitiş noktası, `sure_dakika` (varsayılan 150).
 - Kodlar büyük/küçük harfe ve boşluğa duyarsızdır.
 

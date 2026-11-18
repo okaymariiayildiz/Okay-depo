@@ -3,6 +3,10 @@ let durum = durumOku();
 let zamanlayici = null;
 
 function rota() { return VERI.rotalar[durum.takim] || []; }
+function guvenliUrl(u) {
+  u = (u || "").trim();
+  return /^https?:\/\//i.test(u) ? u.replace(/"/g, "%22") : "";
+}
 function bolumGoster(ad) {
   ["secim", "hazir", "oyun", "bitis"].forEach((b) => $(b).classList.toggle("gizli", b !== ad));
   $("ust").classList.toggle("gizli", ad === "secim");
@@ -79,13 +83,16 @@ function listeCiz() {
     div.className = "kart istasyon " + durumSinif;
     let ic = '<div class="no">' + (i < tam ? "✓" : i + 1) + "</div><div style='flex:1'>";
     ic += "<h2>" + ist.ad + "</h2>";
+    const konum = guvenliUrl(ist.konum);
     if (i === tam) {
-      ic += "<p>" + ist.gorev + "</p>" +
-        '<input id="kodGiris" type="text" placeholder="KOD" autocomplete="off" autocapitalize="characters" autocorrect="off" spellcheck="false">' +
+      ic += "<p>" + ist.gorev + "</p>";
+      if (konum) ic += '<a class="btn konum" href="' + konum + '" target="_blank" rel="noopener">📍 Konuma git</a>';
+      ic += '<p class="soluk" style="margin:14px 0 0">Görevi bitirince yetkilinin verdiği şifreyi yazın:</p>' +
+        '<input id="kodGiris" type="text" placeholder="ŞİFRE" autocomplete="off" autocapitalize="characters" autocorrect="off" spellcheck="false">' +
         '<div id="hata" class="hata"></div>' +
         '<button id="kodDugme" class="btn">Kodu Gönder</button>';
     } else if (i < tam) {
-      ic += '<div class="soluk">Tamamlandı</div>';
+      ic += '<div style="color:var(--yesil);font-weight:700">✅ Görev tamamlandı</div>';
     } else {
       ic += '<div class="soluk">🔒 Önceki istasyonu bitirince açılır</div>';
     }
@@ -105,9 +112,9 @@ function kodDene() {
   const id = rota()[durum.tamamlanan.length];
   const dogru = normalize(VERI.istasyonlar[id].kod);
   const girilen = normalize($("kodGiris").value);
-  if (!girilen) { $("hata").textContent = "Lütfen kodu yazın."; return; }
+  if (!girilen) { $("hata").textContent = "Lütfen şifreyi yazın."; return; }
   if (girilen !== dogru) {
-    $("hata").textContent = "❌ Yanlış kod! Yetkiliden tekrar isteyin.";
+    $("hata").textContent = "❌ Yanlış şifre! Yetkiliden tekrar isteyin.";
     const g = $("kodGiris");
     g.classList.remove("sarsil"); void g.offsetWidth; g.classList.add("sarsil");
     if (navigator.vibrate) navigator.vibrate(200);
@@ -125,6 +132,9 @@ function bitisGoster() {
   const gecen = Math.floor(((durum.tamamlanan.at(-1).ts) - durum.baslangic) / 1000);
   $("bitisSure").textContent = bicim(gecen) + " (dk:sn)";
   $("bitisNokta").textContent = VERI.etkinlik.baslangic_bitis_noktasi;
+  const bk = guvenliUrl(VERI.etkinlik.baslangic_bitis_konum), bl = $("bitisKonum");
+  bl.classList.toggle("gizli", !bk);
+  if (bk) bl.href = bk;
   clearInterval(zamanlayici);
   $("sayac").textContent = bicim(Math.max(0, sureSaniye() - gecen));
   bolumGoster("bitis");
